@@ -1,5 +1,6 @@
 from spacy.lang.en import English
 import nltk
+from nltk.corpus import wordnet 
 
 def preprocess_text(text):
     nltk.download('stopwords')
@@ -31,3 +32,20 @@ def tokenize( text):
         else:
             lda_tokens.append(token.lower_)
     return lda_tokens
+
+def get_lemma(word):
+    ''' Returns lemma of a word '''
+    lemma = wordnet.morphy(word)
+    if lemma is None:
+        return word
+    else:
+        return lemma
+
+def test_get_lemma():
+    words = ['eating', 'having', 'drove', 'fall', 'fallen']
+
+    for word in words:
+      print(word, ' ',get_lemma(word))
+    
+    return
+
