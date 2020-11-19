@@ -2,10 +2,15 @@ from spacy.lang.en import English
 import nltk
 from nltk.corpus import wordnet 
 
-def preprocess_text(text):
-    nltk.download('stopwords')
-    en_stop = set(nltk.corpus.stopwords.words('english'))
+nltk.download('wordnet')
+nltk.download('stopwords')
+en_stop = set(nltk.corpus.stopwords.words('english'))
+parser = English()
 
+
+
+def preprocess_text(text):
+    
     tokens = tokenize(text)
     # print(tokens)
     tokens = [token for token in tokens if len(token) >= 2]
@@ -19,7 +24,7 @@ def preprocess_text(text):
 
 def tokenize( text):
     ''' Tokenize a word. '''
-    parser = English()
+    
     lda_tokens = []
     tokens = parser(text)
     for token in tokens:
@@ -32,6 +37,15 @@ def tokenize( text):
         else:
             lda_tokens.append(token.lower_)
     return lda_tokens
+
+def test_tokenize():
+    tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
+
+    for tweet in tweets:
+        print(tweet)
+        print(tokenize(tweet))
+    return
+
 
 def get_lemma(word):
     ''' Returns lemma of a word '''
