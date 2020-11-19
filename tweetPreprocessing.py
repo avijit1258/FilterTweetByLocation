@@ -39,11 +39,22 @@ def tokenize( text):
     return lda_tokens
 
 def test_tokenize():
+    print('...Testing tokenize....')
     tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
 
     for tweet in tweets:
         print(tweet)
         print(tokenize(tweet))
+    return
+
+def test_preprocess_text():
+    print('...testing preprocess_text....')
+    tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
+
+    for tweet in tweets:
+        print(tweet)
+        print(preprocess_text(tweet))
+
     return
 
 
