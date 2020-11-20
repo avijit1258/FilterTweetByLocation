@@ -19,16 +19,16 @@ def text_summarize(texts):
     print('summary ', summary)
     return summary
 
-def prepare_tweet(tweet):
+def prepare_tweet_for_analysis(tweet):
     processed_tweet = []
     for line in get_sentences(tweet):
         processed_tweet.append(' '.join(tp.preprocess_text(line)) )
 
     return '.'.join(processed_tweet)
 
-def test_prepare_tweet_for_summary_and_sentiment():
+def test_prepare_tweet_for_for_analysis():
     for tweet in tweets:
-        print(prepare_tweet_for_summary_and_sentiment)
+        print(prepare_tweet_for_analysis(tweet))
     return
 
 def test_text_summarize():

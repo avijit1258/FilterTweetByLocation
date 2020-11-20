@@ -8,11 +8,11 @@ def connection():
   api = tweepy.API(auth)
   return api
 
-def searchKeywords(keyword):
+def searchKeywords(keyword,count):
   api = connection()
-  tweets = api.search(keyword,count = 5)
+  tweets = api.search(keyword,count = count)
   returned_tweets = {}
 
   for tweet in tweets:
     returned_tweets[tweet.id] = tweet.text
-  print(returned_tweets)
+  print(returned_tweets.values)

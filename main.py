@@ -12,7 +12,7 @@ def main():
     # topicModeling.test_topic_model_lda()
     # twitterApiConnection.connection()
     # tweetSummarization.test_text_summarize()
-    twitterApiConnection.searchKeywords("covid")
+    twitterApiConnection.searchKeywords("covid",5)
     return
 
 if __name__ == "__main__":
