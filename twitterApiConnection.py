@@ -15,4 +15,5 @@ def searchKeywords(keyword,count):
 
   for tweet in tweets:
     returned_tweets[tweet.id] = tweet.text
-  print(returned_tweets.values)
+  returned_tweets_as_list = list(returned_tweets.values())
+  return returned_tweets_as_list
