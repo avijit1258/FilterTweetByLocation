@@ -33,7 +33,7 @@ def sendDirectMessage(user, message, attachment, attachment_id):
 
 def summarize_tweets():
 
-    tweets = searchKeywords('pandemic', 50)
+    tweets = searchKeywords('pandemic and covid', 50)
     return tweetSummarization.text_summarize(tweets)
 
 def retrive_topics_from_tweets():

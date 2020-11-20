@@ -9,11 +9,25 @@ parser = English()
 
 tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
 
+
+def get_synonyms_of_word(word):
+    synonyms = wordnet.synsets(word)
+
+    return synonyms
+
+def test_get_synonyms_of_word():
+    words = ['health', 'covid', 'vaccine', 'pandemic']
+
+    for word in words:
+        print(word, ' ', get_synonyms_of_word(word))
+
+    return
+
 def preprocess_text(text):
     
     tokens = tokenize(text)
     # print(tokens)
-    tokens = [token for token in tokens if len(token) >= 2]
+    tokens = [token for token in tokens if len(token) > 2]
     # print(tokens)
     tokens = [token for token in tokens if token not in en_stop]
     # print(tokens)
