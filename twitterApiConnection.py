@@ -6,9 +6,13 @@ def connection():
   auth.set_access_token(config.access_token, config.access_token_secret)
 
   api = tweepy.API(auth)
-  
-  public_tweets = api.home_timeline()
-  user = api.get_user('NzOishie') 
-  print(user)
+  return api
 
-  
+def searchKeywords(keyword):
+  api = connection()
+  tweets = api.search(keyword,count = 5)
+  returned_tweets = {}
+
+  for tweet in tweets:
+    returned_tweets[tweet.id] = tweet.text
+  print(returned_tweets)
