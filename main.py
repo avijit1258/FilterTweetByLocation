@@ -9,11 +9,12 @@ def main():
     # tweetPreprocessing.test_get_lemma()
     # tweetPreprocessing.test_tokenize()
     # tweetPreprocessing.test_preprocess_text()
-    # print(topicModeling.topic_model_lda(twitterApiConnection.searchKeywords("a",10000)))
+    print(twitterApiConnection.retrive_topics_from_tweets())
+
     # twitterApiConnection.connection()
     # tweetSummarization.test_text_summarize()
     #tweetSummarization.test_prepare_tweet_for_for_analysis()
-    print(twitterApiConnection.summarize_tweets())
+    # print(twitterApiConnection.summarize_tweets())
 
     return
 

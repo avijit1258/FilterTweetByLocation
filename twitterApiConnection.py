@@ -1,6 +1,7 @@
 import tweepy
 import config
 import tweetSummarization
+import topicModeling
 
 def connection():
   auth = tweepy.OAuthHandler(config.consumer_key, config.consumer_secret)
@@ -32,5 +33,9 @@ def sendDirectMessage(user, message, attachment, attachment_id):
 
 def summarize_tweets():
 
-    tweets = searchKeywords('health', 50)
+    tweets = searchKeywords('pandemic', 50)
     return tweetSummarization.text_summarize(tweets)
+
+def retrive_topics_from_tweets():
+    tweets = searchKeywords('pandemic and covid', 500)
+    return topicModeling.topic_model_lda(list(tweets.values()))
