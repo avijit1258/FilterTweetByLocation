@@ -17,7 +17,7 @@ def searchKeywords(keyword, count):
   for tweet in tweets:
     returned_tweets[tweet.id] = tweet.text
   # returned_tweets_as_list = list(returned_tweets.values())
-  
+  # print(returned_tweets)
   return returned_tweets
 
 def sendDirectMessage(user, message):
@@ -32,5 +32,5 @@ def sendDirectMessage(user, message, attachment, attachment_id):
 
 def summarize_tweets():
 
-    tweets = searchKeywords('covid', 100)
-    print(tweetSummarization.text_summarize(tweets))
+    tweets = searchKeywords('health', 50)
+    return tweetSummarization.text_summarize(tweets)
