@@ -12,7 +12,7 @@ def connection():
 
 def searchKeywords(keyword, count):
   api = connection()
-  tweets = api.search(keyword,count = count)
+  tweets = api.search(keyword+" -is:retweet -has:media -has:images -has:videos -has:links lang:en",count = count)
   returned_tweets = {}
 
   for tweet in tweets:
@@ -37,5 +37,5 @@ def summarize_tweets():
     return tweetSummarization.text_summarize(tweets)
 
 def retrive_topics_from_tweets():
-    tweets = searchKeywords('pandemic and covid', 500)
+    tweets = searchKeywords('pandemic and covid', 50000)
     return topicModeling.topic_model_lda(list(tweets.values()))
