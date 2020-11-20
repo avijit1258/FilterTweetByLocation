@@ -12,8 +12,17 @@ def searchKeywords(keyword,count):
   api = connection()
   tweets = api.search(keyword,count = count)
   returned_tweets = {}
-
   for tweet in tweets:
     returned_tweets[tweet.id] = tweet.text
   returned_tweets_as_list = list(returned_tweets.values())
   return returned_tweets_as_list
+
+def sendDirectMessage(user,message):
+  api = connection()
+  user = api.get_user(user)
+  api.send_direct_message(user.id,message)
+
+def sendDirectMessage(user,message,attachment,attachment_id):
+  api = connection()
+  user = api.get_user(user)
+  api.send_direct_message(user.id,message,attachment,attachment_id)

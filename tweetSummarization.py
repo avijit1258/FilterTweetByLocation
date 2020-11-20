@@ -26,18 +26,18 @@ def prepare_tweet_for_analysis(tweet):
 
     return '.'.join(processed_tweet)
 
+def merge_tweets_as_passage(tweets):
+    
+
+    return
+
 def test_prepare_tweet_for_for_analysis():
+    print('...Testing prepare tweet....')
     for tweet in tweets:
         print(prepare_tweet_for_analysis(tweet))
     return
 
 def test_text_summarize():
     print('...Testing tokenize....')
-    
-    # print(str(tweets))
-    # print(text_summarize(tweets[0]))
-    for tweet in tweets:
-        # print(clean_text_by_sentences(tweet))
-        print([e for e in get_sentences(tweet) ])
     
     return

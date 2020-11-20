@@ -2,6 +2,9 @@ from gensim import corpora
 import gensim
 import tweetPreprocessing
 
+
+tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
+
 def topic_model_lda(texts):
     ''' mine topics using LDA '''
     NUM_TOPICS = 5
@@ -25,7 +28,6 @@ def topic_model_lda(texts):
 
 def test_topic_model_lda():
     print('...Testing topic_model_lda....')
-    tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
     
     print(topic_model_lda(tweets))
 

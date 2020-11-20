@@ -9,9 +9,10 @@ def main():
     # tweetPreprocessing.test_get_lemma()
     # tweetPreprocessing.test_tokenize()
     # tweetPreprocessing.test_preprocess_text()
-    print(topicModeling.topic_model_lda(twitterApiConnection.searchKeywords("heart attack",10000)))
+    print(topicModeling.topic_model_lda(twitterApiConnection.searchKeywords("a",10000)))
     # twitterApiConnection.connection()
     # tweetSummarization.test_text_summarize()
+    #tweetSummarization.test_prepare_tweet_for_for_analysis()
     return
 
 if __name__ == "__main__":
