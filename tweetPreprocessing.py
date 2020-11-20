@@ -45,9 +45,9 @@ def tokenize( text):
         if token.orth_.isspace():
             continue
         elif token.like_url:
-            lda_tokens.append('URL')
+            lda_tokens.append(' ')
         elif token.orth_.startswith('@'):
-            lda_tokens.append('SCREEN_NAME')
+            lda_tokens.append(' ')
         else:
             lda_tokens.append(token.lower_)
     return lda_tokens
