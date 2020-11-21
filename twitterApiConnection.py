@@ -12,14 +12,22 @@ def connection():
 
 def searchKeywords(keyword, count):
   api = connection()
-  tweets = api.search(keyword+" -is:retweet -has:media -has:images -has:videos -has:links lang:en",count = count)
-  returned_tweets = {}
+  filters = " -is:retweet -has:media -has:images -has:videos -has:links lang:en"
+  
+  count = 0
+  tweets = tweepy.Cursor(api.search,
+              q = keyword + filters,
+              lang = "en",
+              until = "2020-11-19",
+              count = 100, # Is it needed? - I think no.
+              wait_on_rate_limit = True).items(1000)
 
   for tweet in tweets:
-    returned_tweets[tweet.id] = tweet.text
-  # returned_tweets_as_list = list(returned_tweets.values())
-  # print(returned_tweets)
-  return returned_tweets
+    count = count + 1
+    print(tweet.text)
+  print(count)
+  
+  # return returned_tweets
 
 def sendDirectMessage(user, message):
   api = connection()
@@ -33,9 +41,29 @@ def sendDirectMessage(user, message, attachment, attachment_id):
 
 def summarize_tweets():
 
-    tweets = searchKeywords('pandemic and covid', 50)
+    tweets = searchKeywords('pandemic covid', 50)
     return tweetSummarization.text_summarize(tweets)
 
 def retrive_topics_from_tweets():
-    tweets = searchKeywords('pandemic and covid', 50000)
+    tweets = searchKeywords('health', 500000)
     return topicModeling.topic_model_lda(list(tweets.values()))
+
+def searchByLocation():
+    
+    return 
+
+def get_trends():
+
+    api = connection()
+
+    trends_location = api.trends_available()
+
+    # to do
+    # api.trends_place(id) returns top 10 trending topics for a given WOEID
+
+
+    for tl in trends_location:
+        print(tl)
+        print(api.trends_place(tl['woeid']))
+    
+    return trends_location

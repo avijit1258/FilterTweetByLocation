@@ -11,11 +11,12 @@ def main():
     # tweetPreprocessing.test_preprocess_text()
     # print(twitterApiConnection.retrive_topics_from_tweets())
     # print(twitterApiConnection.summarize_tweets())
-    print(twitterApiConnection.searchKeywords("health", count = 5))
+    # twitterApiConnection.searchKeywords("covid", count = 100)
     # tweetSummarization.test_text_summarize()
     #tweetSummarization.test_prepare_tweet_for_for_analysis()
     # print(twitterApiConnection.summarize_tweets())
     # print(tweetPreprocessing.test_get_synonyms_of_word())
+    # twitterApiConnection.get_trends()
     
     return
 

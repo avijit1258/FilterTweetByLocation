@@ -9,7 +9,7 @@ tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes
 def topic_model_lda(texts):
     ''' mine topics using LDA '''
     NUM_TOPICS = 10
-    NUM_WORDS = 15
+    NUM_WORDS = 7
     all_tokens = []
 
     for text in texts:
