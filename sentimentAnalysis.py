@@ -2,14 +2,14 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 analyzer = SentimentIntensityAnalyzer()
 
-def sentiment_polarity_score(texts):
+def sentiment_polarity_score(tweets):
     ''' This method returns polarity score for pos, neg, neu and compound '''
+    tweets_with_sentiment = {}
+    for key, value in tweets.items():
+        snt = analyzer.polarity_scores(value)
+        tweets_with_sentiment[key] = snt 
 
-    for text in texts:
-        snt = analyzer.polarity_scores(text)
-        print(text, ' ', snt)
-
-    return
+    return tweets_with_sentiment
 
 def test_sentiment_polarity_scores():
 

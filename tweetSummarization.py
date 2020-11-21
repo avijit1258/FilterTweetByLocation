@@ -16,7 +16,7 @@ def get_sentences_from_text(text):
 
 def text_summarize(tweets):
     # print('passage: ', merge_tweets_as_passage(tweets))
-    summary = summarize(merge_tweets_as_passage(tweets))
+    summary = summarize(merge_tweets_as_passage(tweets), word_count = 200)
     # print('summary ', summary)
     return summary
 
@@ -24,7 +24,7 @@ def prepare_tweet_for_analysis(tweet):
     processed_tweet = []
     for line in get_sentences(tweet):
         processed_tweet.append(' '.join(tp.preprocess_text(line)) )
-
+        
     return '.'.join(processed_tweet)
 
 def merge_tweets_as_passage(tweets):

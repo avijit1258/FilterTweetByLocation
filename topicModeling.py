@@ -21,8 +21,10 @@ def topic_model_lda(texts):
     corpus = [dictionary.doc2bow(token) for token in all_tokens]
 
     ldamodel = gensim.models.ldamulticore.LdaMulticore(corpus, num_topics=NUM_TOPICS, id2word=dictionary, passes=12)
-    topics = ldamodel.show_topics(num_topics = NUM_TOPICS, num_words= NUM_WORDS, formatted = True)
-    # todo process topics from returned format
+    # topics = ldamodel.show_topics(num_topics = NUM_TOPICS, num_words= NUM_WORDS, formatted = True)
+
+    topics = ldamodel.show_topics(num_topics = NUM_TOPICS, num_words = NUM_WORDS)
+    
 
     # topic coherence
     cm = CoherenceModel(model=ldamodel, corpus=corpus, coherence='u_mass')

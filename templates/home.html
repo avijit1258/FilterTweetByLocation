@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+body {
+  background-color: #1DA1F2;
+}
+.white {
+  color: white;
+}
+.trending-topics {
+  margin-top: 5%;
+}
+
+.well {
+  background-color: white;
+  margin-left: 10px;
+}
+
+.summary-well {
+  margin-top: 15%;
+  margin-left: 5%;
+  background-color: white;
+  height: 80%;
+  border-radius: 6px ;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-margin {
+  margin-top: 3%;
+  margin-left: 5%;
+}
+.green {
+  background-color: green;
+}
+.percentage {
+  margin-top : -4%;
+  margin-left: 2%;
+}
+</style>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Twitter"><br>
+    <h1 class="white"> Healthrend - Stay Healthy</h1>
+    <div class="col-md-4">
+    <label class = "white" for="">Location</label>
+    <input class="form-control" type="text" placeholder="Search For Locations">
+    </div>
+    <div class="col-md-4">
+      <label class = "white" for="">From</label>
+      <input class="form-control" type="date" >
+    </div>
+    <div class="col-md-4">
+      <label class = "white" for="">To</label>
+      <input class="form-control" type="date" >
+    </div><br>
+    <h2 class="white trending-topics">Trending Health Topics:</h2> <br>
+    <div class="col-md-4">
+      <div class="well row">Topic 1</div>
+      <div class="well row">Topic 2</div>
+      <div class="well row">Topic 2</div>
+      <div class="well row">Topic 2</div>
+      <div class="well row">Topic 2</div>
+    </div>
+    <div class="col-md-8" ">
+      <div class="jumbottron summary-well">
+        <span>
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium
+        Lorium Ipsum Summary Lorium Ipsum Summary Lorium 
+        </span>
+      </div>
+      <div class="row">
+        <span class="dot dot-margin green"></span>
+        <a class="white percentage">40%</a>
+      </div>
+    </div>
+    <!-- <div class="well col-md-4">Topic 3</div><br>
+    <div class="well col-md-4">Topic 4</div><br>
+    <div class="well col-md-4">Topic 5</div><br> -->
+  <!-- <div>
+    <ul class="list-group">
+      {% for topic in topics %}
+      <li  class="list-group-item">{{ your_list_element }} </li>
+      {% endfor %}
+    </ul> -->
+  </div>
+  </div>
+
+
+  
+
+</body>
+</html>

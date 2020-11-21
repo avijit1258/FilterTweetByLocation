@@ -1,22 +1,15 @@
-import sentimentAnalysis 
-import tweetPreprocessing
-import topicModeling
+
 import twitterApiConnection
-import tweetSummarization
+import tweetAnalysis
 
 def main():
-    # sentimentAnalysis.test_sentiment_polarity_scores()
-    # tweetPreprocessing.test_get_lemma()
-    # tweetPreprocessing.test_tokenize()
-    # tweetPreprocessing.test_preprocess_text()
-    # print(twitterApiConnection.retrive_topics_from_tweets())
-    # print(twitterApiConnection.summarize_tweets())
-    # twitterApiConnection.searchKeywords("covid", count = 100)
-    # tweetSummarization.test_text_summarize()
-    #tweetSummarization.test_prepare_tweet_for_for_analysis()
-    # print(twitterApiConnection.summarize_tweets())
-    # print(tweetPreprocessing.test_get_synonyms_of_word())
-    # twitterApiConnection.get_trends()
+   
+    tweets = twitterApiConnection.searchKeywords("covid", count = 100)
+
+    print(tweetAnalysis.retrive_topics_from_tweets(tweets))
+    # print(tweetAnalysis.summarize_tweets(tweets))
+    # print(tweetAnalysis.get_tweets_sentiments(tweets))
+
     
     return
 
