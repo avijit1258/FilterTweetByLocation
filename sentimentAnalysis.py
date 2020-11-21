@@ -13,21 +13,21 @@ def sentiment_polarity_score(tweets):
     return tweets_with_sentiment
 
 def categorize_tweets_according_to_sentiment(tweets):
-    THRESHOLD = 0.6
+    THRESHOLD = 0.05
     tweets_with_sentiment = sentiment_polarity_score(tweets)
     positive = []
     negative = []
     neutral = []
 
     for key, value in tweets_with_sentiment.items():
-        if value['pos'] >= THRESHOLD:
+        if value['compound'] >= THRESHOLD:
             positive.append(key)
         
-        if value['neg'] >= THRESHOLD:
-            negative.append(key)
-
-        if value['neu'] >= THRESHOLD:
+        if (value['compound'] > -THRESHOLD) and (value['compound'] < THRESHOLD):
             neutral.append(key)
+
+        if value['compound'] <= -THRESHOLD:
+            negative.append(key)
         
     return {'pos': positive, 'neg': negative, 'neu': neutral}
 
