@@ -7,9 +7,11 @@ from gensim.models.coherencemodel import CoherenceModel
 tweets = ['Our proposal for a digital contact tracing system #PanCast  that goes beyond smartphone-based solutions. It''s a joint collaboration with Gilles Barthe, @rdeviti, Peter Druschel, Deepak Garg,  @autreche, Pierfrancesco Ingo, @mattlentz_ & @bschoelkopf. http://pancast.mpi-sws.org', 'Sending good vibes to everyone fighting to make it through BFCM','I really dropped all my hobbies and talents in order to focus on ‘productivity’ and chasing the bag in college damn']
 
 def topic_model_lda(texts):
-    ''' mine topics using LDA '''
-    NUM_TOPICS = 10
-    NUM_WORDS = 7
+    ''' mine topics using LDA
+        returns list(topic) of list (terms)
+    '''
+    NUM_TOPICS = 5
+    NUM_WORDS = 10
     all_tokens = []
 
     for text in texts:
@@ -21,10 +23,15 @@ def topic_model_lda(texts):
     corpus = [dictionary.doc2bow(token) for token in all_tokens]
 
     ldamodel = gensim.models.ldamulticore.LdaMulticore(corpus, num_topics=NUM_TOPICS, id2word=dictionary, passes=12)
-    # topics = ldamodel.show_topics(num_topics = NUM_TOPICS, num_words= NUM_WORDS, formatted = True)
 
-    topics = ldamodel.show_topics(num_topics = NUM_TOPICS, num_words = NUM_WORDS)
+    topics = []
     
+    for topicId in range(NUM_TOPICS):
+        topic = ldamodel.show_topic(topicId, topn = NUM_WORDS)
+        topic = [t[0] for t in topic]
+        topics.append(topic)
+
+    # print(ldamodel.top_topics(corpus, dictionary, topn = NUM_WORDS))
 
     # topic coherence
     cm = CoherenceModel(model=ldamodel, corpus=corpus, coherence='u_mass')
@@ -32,6 +39,7 @@ def topic_model_lda(texts):
     print('Coherence ', coherence)
 
     return topics
+
 
 def test_topic_model_lda():
     print('...Testing topic_model_lda....')

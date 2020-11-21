@@ -11,7 +11,7 @@ def connection():
   api = tweepy.API(auth)
   return api
 
-def searchKeywords(keyword, count):
+def searchKeywords(keyword, items):
     api = connection()
     filters = " -is:retweet -has:media -has:images -has:videos -has:links lang:en"
     
@@ -21,7 +21,7 @@ def searchKeywords(keyword, count):
                 lang = "en",
                 until = "2020-11-19",
                 count = 100, 
-                wait_on_rate_limit = True).items(1000)
+                wait_on_rate_limit = True).items(items)
 
     for tweet in tweets:
         returned_tweets[tweet.id] = tweet.text
