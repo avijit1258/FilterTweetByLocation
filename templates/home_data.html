@@ -94,9 +94,10 @@ body {
     <div class="col-md-2">
       <button class="form-control white-bg">Search</button>
     </div><br>
-    
+    <input type="hidden" id="current_topic" name="current_topic" value=0>
     <h2 class="white trending-topics">Trending Health Topics:</h2> <br>
     <div class="col-md-4">
+
       <div class="well row" id="topic1"> {{ tweet_data[0]['topic_title'] }} </div>
       <div class="well row" id="topic2">{{ tweet_data[1]['topic_title'] }}</div>
       <div class="well row" id="topic3">{{ tweet_data[2]['topic_title'] }}</div>
@@ -149,6 +150,7 @@ body {
     $('#topic1').on('click',function()
     {
         var topicId = 0;
+        document.getElementById("current_topic").value = topicId;
         document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
         document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
         document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
@@ -159,6 +161,7 @@ body {
     $('#topic2').on('click', function()
     {
         var topicId = 1;
+        document.getElementById("current_topic").value = topicId;
         document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
         document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
         document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
@@ -169,6 +172,7 @@ body {
     $('#topic3').click(function()
     {
         var topicId = 2;
+        document.getElementById("current_topic").value = topicId;
         document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
         document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
         document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
@@ -179,6 +183,7 @@ body {
     $('#topic4').click(function()
     {
         var topicId = 3;
+        document.getElementById("current_topic").value = topicId;
         document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
         document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
         document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
@@ -189,10 +194,30 @@ body {
     $('#topic5').click(function()
     {
         var topicId = 4;
+        document.getElementById("current_topic").value = topicId;
         document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
         document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
         document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
         document.getElementById("negative").innerHTML = tweet_data[topicId]['ratio']['neg'];
+
+    });
+
+    $('#positive').click(function()
+    {
+        var topicId = document.getElementById("current_topic").value;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['category_summary']['pos'];
+
+    });
+    $('#negative').click(function()
+    {
+        var topicId = document.getElementById("current_topic").value;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['category_summary']['neg'];
+
+    });
+    $('#neutral').click(function()
+    {
+        var topicId = document.getElementById("current_topic").value;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['category_summary']['neu'];
 
     });
 
