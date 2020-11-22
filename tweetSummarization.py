@@ -22,17 +22,20 @@ def text_summarize(tweets):
 
 def prepare_tweet_for_analysis(tweet):
     processed_tweet = []
+    temp_tweet = ''
     for line in get_sentences(tweet):
-        processed_tweet.append(' '.join(tp.preprocess_text(line)) )
+        temp_tweet = ' '.join(tp.preprocess_text(line))
+        processed_tweet.append(temp_tweet)
         
-    return '.'.join(processed_tweet)
+    return '. '.join(processed_tweet)
 
 def merge_tweets_as_passage(tweets):
     # print(tweets)
+    tweet_lines = []
     for key,value in tweets.items():
-        tweets[key] = prepare_tweet_for_analysis(value)
+        tweet_lines.append(prepare_tweet_for_analysis(value))
 
-    return ' '.join(list(tweets.values()))
+    return ' '.join(tweet_lines)
 
 def test_prepare_tweet_for_for_analysis():
     print('...Testing prepare tweet....')

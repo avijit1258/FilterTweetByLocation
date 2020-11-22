@@ -11,7 +11,7 @@ def topic_model_lda(texts):
         returns list(topic) of list (terms)
     '''
     NUM_TOPICS = 5
-    NUM_WORDS = 10
+    NUM_WORDS = 7
     all_tokens = []
 
     for text in texts:
@@ -22,7 +22,8 @@ def topic_model_lda(texts):
     dictionary = corpora.Dictionary(all_tokens)
     corpus = [dictionary.doc2bow(token) for token in all_tokens]
 
-    ldamodel = gensim.models.ldamulticore.LdaMulticore(corpus, num_topics=NUM_TOPICS, id2word=dictionary, passes=12)
+    # ldamodel = gensim.models.ldamulticore.LdaMulticore(corpus, num_topics=NUM_TOPICS, id2word=dictionary, passes=12)
+    ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=NUM_TOPICS, id2word=dictionary, alpha = 'auto', eval_every = 5)
 
     topics = []
     
