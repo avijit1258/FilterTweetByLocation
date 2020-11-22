@@ -20,7 +20,8 @@ def searchKeywords(keyword, items):
                 q = keyword + filters,
                 lang = "en",
                 until = "2020-11-19",
-                count = 100, 
+                count = 100,
+                # geocode = '52.115350, -106.591490, 1000km', 
                 wait_on_rate_limit = True).items(items)
 
     for tweet in tweets:
@@ -38,9 +39,6 @@ def sendDirectMessageWithMedia(user, message, attachment, attachment_id):
     api = connection()
     user = api.get_user(user)
     api.send_direct_message(user.id,message,attachment,attachment_id)
-
-
-
 
 
 def get_trends():

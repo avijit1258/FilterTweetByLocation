@@ -38,16 +38,26 @@ def get_summary_sentiment_category_tweets(sentiment_category_tweets, tweets):
 
     return {'pos' : positive_summary, 'neg': negative_summary, 'neu': neutral_summary}
 
-def summary_sentiment_topic_tweets():
+def calculate_tweet_sentiment_ratio(tweets_in_category):
+
+    positive_ratio = (len(tweets_in_category['pos']) / 200.0) * 100
+    negative_ratio = (len(tweets_in_category['neg']) / 200.0) * 100
+    neutral_ratio = (len(tweets_in_category['neu']) / 200.0) * 100
+
+    return {'pos': positive_ratio, 'neg': negative_ratio, 'neu': neutral_ratio}
+
+def summary_sentiment_topic_tweets(keywords):
     TOTAL_TWEETS = 1000
     TWEETS_PER_TOPIC = 200
     topic_tweets = {}
     topic_tweets_summary = {}
     topic_tweets_category = {}
     topic_tweets_category_summary = {}
+    topic_tweets_category_ratio = {}
+    aggregated_for_frontend = {}
 
     # get topics from 1000 tweets
-    tweets = tAC.searchKeywords("health", TOTAL_TWEETS)
+    tweets = tAC.searchKeywords(keywords, TOTAL_TWEETS)
     topics = retrive_topics_from_tweets(tweets)
 
     # get 200 tweets of each topic
@@ -61,9 +71,9 @@ def summary_sentiment_topic_tweets():
     for key, value in topic_tweets.items():
         topic_tweets_summary[key] = summarize_tweets(value)
         topic_tweets_category[key] = get_tweets_sentiments_with_category(value)
-        print('positive ',  len(topic_tweets_category[key]['pos']) / 200.0)
-        print('negative ', len(topic_tweets_category[key]['neg']) / 200.0)
-        print('neutral ', len(topic_tweets_category[key]['neu']) / 200.0)
+        topic_tweets_category_ratio[key] = calculate_tweet_sentiment_ratio(topic_tweets_category[key])
+        
+        
     print('topic_tweets_summary ', topic_tweets_summary)
     print('topic_tweets_category ', topic_tweets_category)
 
@@ -72,8 +82,11 @@ def summary_sentiment_topic_tweets():
 
     
     print('topic_tweets_category_summary ', topic_tweets_category_summary)
+
+    for key, value in topic_tweets.items():
+        aggregated_for_frontend[key] = {'title': value, 'ratio': topic_tweets_category_ratio[key], 'category_summary': topic_tweets_category_summary[key]}
     
-    return
+    return aggregated_for_frontend
 
 
     

@@ -12,4 +12,4 @@ def hello_world():
         return render_template('home.html')
 
 
-app.run(host='0.0.0.0', port=8082)
+app.run(host='0.0.0.0', port=8080)

@@ -39,14 +39,23 @@ body {
 }
 .dot-margin {
   margin-top: 3%;
-  margin-left: 5%;
+  margin-left: 7%;
 }
 .green {
   background-color: green;
 }
+.red {
+  background-color: red;
+}
+.orange {
+  background-color: orange;
+}
 .percentage {
-  margin-top : -4%;
   margin-left: 2%;
+}
+.white-bg {
+  background-color: white;
+  margin-top: 5%;
 }
 </style>
 <body>
@@ -64,7 +73,11 @@ body {
     <div class="col-md-4">
       <label class = "white" for="">To</label>
       <input class="form-control" type="date" >
-    </div><br>
+    </div><br><br>
+    <div class="col-md-2">
+      <button class="form-control white-bg">Search</button>
+    </div>
+    
     <h2 class="white trending-topics">Trending Health Topics:</h2> <br>
     <div class="col-md-4">
       <div class="well row">Topic 1</div>
@@ -88,6 +101,10 @@ body {
       <div class="row">
         <span class="dot dot-margin green"></span>
         <a class="white percentage">40%</a>
+        <span class="dot dot-margin orange"></span>
+        <a class="white percentage">50%</a>
+        <span class="dot dot-margin red"></span>
+        <a class="white percentage">10%</a>
       </div>
     </div>
     <!-- <div class="well col-md-4">Topic 3</div><br>
