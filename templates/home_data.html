@@ -26,7 +26,7 @@ body {
 }
 
 .well:hover {
-  background: blue;
+  background: yellow;
 }
 
 .summary-well {
@@ -98,10 +98,10 @@ body {
     <h2 class="white trending-topics">Trending Health Topics:</h2> <br>
     <div class="col-md-4">
       <div class="well row" id="topic1"> {{ tweet_data[0]['topic_title'] }} </div>
-      <div class="well row">{{ tweet_data[1]['topic_title'] }}</div>
-      <div class="well row">{{ tweet_data[2]['topic_title'] }}</div>
-      <div class="well row">{{ tweet_data[3]['topic_title'] }}</div>
-      <div class="well row">{{ tweet_data[4]['topic_title'] }}</div>
+      <div class="well row" id="topic2">{{ tweet_data[1]['topic_title'] }}</div>
+      <div class="well row" id="topic3">{{ tweet_data[2]['topic_title'] }}</div>
+      <div class="well row" id="topic4">{{ tweet_data[3]['topic_title'] }}</div>
+      <div class="well row" id="topic5">{{ tweet_data[4]['topic_title'] }}</div>
     </div>
     <div class="col-md-8" ">
       <div class="jumbottron summary-well">
@@ -117,11 +117,11 @@ body {
       </div>
       <div class="row">
         <span class="dot dot-margin green"></span>
-        <a class="white percentage">40%</a>
+        <a class="white percentage" id="positive">40%</a>
         <span class="dot dot-margin orange"></span>
-        <a class="white percentage">50%</a>
+        <a class="white percentage"id="neutral">50%</a>
         <span class="dot dot-margin red"></span>
-        <a class="white percentage">10%</a>
+        <a class="white percentage"id="negative">10%</a>
       </div>
       <div class="row">
         <label class="white send">Send message to:</label>
@@ -146,11 +146,57 @@ body {
 <script>
     var tweet_data = {{ tweet_data | tojson }};
     
-    $('#topic1').click(function()
+    $('#topic1').on('click',function()
     {
-        alert(tweet_data);
-        document.getElementById("topic_summary").innerHTML = tweet_data[0]['topic_summary'];
+        var topicId = 0;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
+        document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['neg'];
+
     });
+
+    $('#topic2').on('click', function()
+    {
+        var topicId = 1;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
+        document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['neg'];
+
+    });
+
+    $('#topic3').click(function()
+    {
+        var topicId = 2;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
+        document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['neg'];
+
+    });
+
+    $('#topic4').click(function()
+    {
+        var topicId = 3;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
+        document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['neg'];
+
+    });
+
+    $('#topic5').click(function()
+    {
+        var topicId = 4;
+        document.getElementById("topic_summary").innerHTML = tweet_data[topicId]['topic_summary'];
+        document.getElementById("positive").innerHTML = tweet_data[topicId]['ratio']['pos'];
+        document.getElementById("neutral").innerHTML = tweet_data[topicId]['ratio']['neu'];
+        document.getElementById("negative").innerHTML = tweet_data[topicId]['ratio']['neg'];
+
+    });
+
+    
     
 
 </script>
