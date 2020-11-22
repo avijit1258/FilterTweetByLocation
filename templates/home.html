@@ -56,7 +56,19 @@ body {
 .white-bg {
   background-color: white;
   margin-top: 5%;
+  border: none;
+  border-radius: 10%;
 }
+.send {
+  margin-left: 7%;
+  margin-top:3%;
+}
+.handle {
+  border-radius: 5%;
+  border: None;
+}
+
+
 </style>
 <body>
   <div class="container">
@@ -76,7 +88,7 @@ body {
     </div><br><br>
     <div class="col-md-2">
       <button class="form-control white-bg">Search</button>
-    </div>
+    </div><br>
     
     <h2 class="white trending-topics">Trending Health Topics:</h2> <br>
     <div class="col-md-4">
@@ -106,6 +118,12 @@ body {
         <span class="dot dot-margin red"></span>
         <a class="white percentage">10%</a>
       </div>
+      <div class="row">
+        <label class="white send">Send message to:</label>
+        <input type="text" class= "handle" placeholder="&nbsp;@twitterhandle">
+        <input class="white-bg" type="submit">
+      </div>
+      
     </div>
     <!-- <div class="well col-md-4">Topic 3</div><br>
     <div class="well col-md-4">Topic 4</div><br>

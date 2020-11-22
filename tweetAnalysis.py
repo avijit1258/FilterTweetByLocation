@@ -74,17 +74,17 @@ def summary_sentiment_topic_tweets(keywords):
         topic_tweets_category_ratio[key] = calculate_tweet_sentiment_ratio(topic_tweets_category[key])
         
         
-    print('topic_tweets_summary ', topic_tweets_summary)
-    print('topic_tweets_category ', topic_tweets_category)
+    # print('topic_tweets_summary ', topic_tweets_summary)
+    # print('topic_tweets_category ', topic_tweets_category)
 
     for key, value in topic_tweets_category.items():
         topic_tweets_category_summary[key] = get_summary_sentiment_category_tweets(value, topic_tweets[key])
 
     
-    print('topic_tweets_category_summary ', topic_tweets_category_summary)
+    # print('topic_tweets_category_summary ', topic_tweets_category_summary)
 
     for key, value in topic_tweets.items():
-        aggregated_for_frontend[key] = {'title': value, 'ratio': topic_tweets_category_ratio[key], 'category_summary': topic_tweets_category_summary[key]}
+        aggregated_for_frontend[key] = {'title': topic_tweets_summary[key], 'ratio': topic_tweets_category_ratio[key], 'category_summary': topic_tweets_category_summary[key]}
     
     return aggregated_for_frontend
 
