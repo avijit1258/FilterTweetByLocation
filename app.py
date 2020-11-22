@@ -17,9 +17,9 @@ def hello_world():
     else:
         return render_template('home.html')
 
-@app.route('/get_topic_summary', methods=['GET', 'POST'])
+@app.route('/topic', methods=['GET', 'POST'])
 def topics_with_sentiment_summary():
     tweet_data = tweetAnalysis.summary_sentiment_topic_tweets('health')
     return render_template('home_data.html', tweet_data = tweet_data)
 
-app.run(host='0.0.0.0', port=8080)
+app.run(host='0.0.0.0', port=8082)

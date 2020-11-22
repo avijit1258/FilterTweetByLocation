@@ -64,7 +64,8 @@ def summary_sentiment_topic_tweets(keywords):
 
     count = 0
     for topic in topics:
-        topic_tweets[count] = tAC.searchKeywords(' OR '.join(topic), TWEETS_PER_TOPIC)
+        search_query = ' OR '.join(topic)
+        topic_tweets[count] = tAC.searchKeywords(search_query, TWEETS_PER_TOPIC)
         count = count + 1
 
     # summarizes tweets of a topic

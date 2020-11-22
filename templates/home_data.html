@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>healthTrend</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -72,13 +72,18 @@ body {
   border-radius: 5%;
   border: None;
 }
-
+.logo {
+  height : 100px;
+  weight: 100px;
+}
 
 </style>
 <body >
   <div class="container">
-    <img src="/static/logo_twitter.png" alt="Twitter"><br>
-    <h1 class="white"> Healthrend - Stay Healthy</h1>
+    <div class="row">
+      <img class="logo" src="/static/logo_twitter.png" alt="Twitter">
+      <h1 class="white"> #healthTrend - Shape the Public Health</h1>
+    </div>
     <div class="col-md-4">
     <label class = "white" for="">Location</label>
     <input class="form-control" type="text" placeholder="Search For Locations">
@@ -95,7 +100,7 @@ body {
       <button class="form-control white-bg">Search</button>
     </div><br>
     <input type="hidden" id="current_topic" name="current_topic" value=0>
-    <h2 class="white trending-topics">Trending Health Topics:</h2> <br>
+    <h2 class="white trending-topics">Trending Health Issues:</h2> <br>
     <div class="col-md-4">
 
       <div class="well row" id="topic1"> {{ tweet_data[0]['topic_title'] }} </div>
